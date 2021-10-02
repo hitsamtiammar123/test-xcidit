@@ -1,12 +1,12 @@
 module.exports = {
-  "development": {
-    "username": "postgres",
-    "password": "123456789",
-    "database": "fatbellies-xcidic",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+  development: {
+    username: 'postgres',
+    password: "123456789",
+    database: "fatbellies-xcidic",
+    host: "127.0.0.1",
+    dialect: "postgres"
   },
-  "test": {
+  test: {
     "username": "root",
     "password": null,
     "database": "database_test",
@@ -21,7 +21,10 @@ module.exports = {
     "dialect": "postgres",
     "port": 5432,
     "dialectOptions": {
-      "ssl": true
+      "ssl": {
+        require: true,
+        rejectUnauthorized: false
+      }
     }
   }
 };
