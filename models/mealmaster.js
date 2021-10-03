@@ -2,7 +2,8 @@
 const {
   Model,
   ValidationError,
-  ValidationErrorItem
+  ValidationErrorItem,
+  QueryTypes
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
@@ -12,6 +13,13 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    async getStartingPrice(){
+      const minPrice = await sequelize.query(
+        'select min("price") from "MealTimes" mt where mt."mealMasterId" = :mealmasterid',
+        { type: QueryTypes.SELECT, replacements: { mealmasterid: this.id } })
+      return minPrice.length > 0 ? minPrice[0].min : null;
+    }
 
     async checkUniqueDays(){
       const branchId = this.branchId;
@@ -27,7 +35,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       MealMaster.belongsTo(models.Branch, { foreignKey: 'branchId' });
       MealMaster.hasMany(models.MealTime, { foreignKey: 'mealMasterId' } );
-      MealMaster.hasMany(models.MealMasterExtra, { foreignKey: 'mealmasterid' } )
+      MealMaster.hasMany(models.MealMasterExtra, { foreignKey: 'mealmasterid' } );
+      MealMaster.hasMany(models.Reservation, { foreignKey: 'mealmasterid' })
     }
   };
   MealMaster.init({

@@ -2,14 +2,19 @@ const { Branch } = require('../../models');
 
 const getAllBranch = async (req, res, next) => {
   try{
-    const branches = await Branch.findAndCountAll({
+    const branches = await Branch.findAll({
       order: ['id'],
     });
+    const lon = req.query.lon ? Number(req.query.lon) : 0;
+    const lat = req.query.lat ? Number(req.query.lat) : 0;
     res.status(200).json({
       status: 200,
       message: 'Success',
       data: {
-        branches
+        branches: branches.map(b => ({
+          ...b.toJSON(),
+          distanch: b.getDistance(lon, lat)
+        }))
       }
     });
   }catch(err){

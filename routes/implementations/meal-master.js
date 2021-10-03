@@ -1,25 +1,75 @@
 const { keyBy } = require('lodash');
-const { MealMaster, MealTime, MealPlan } = require('../../models');
+const { Op } = require('sequelize');
+const { MealMaster, MealTime, MealPlan, Branch } = require('../../models');
+
+const getExtraFilterForMasterBranch = (req) => {
+  const extraFilterMealPlan = {
+    where: {}
+  };
+  const extraFilterMealTime = {
+    where: {}
+  };
+  if(req.query.name){
+    extraFilterMealPlan.where = {
+      name: {
+        [Op.iLike]: `%${req.query.name}%`
+      }
+    }
+  }
+
+  if(req.query.starttime){
+    extraFilterMealTime.where = {
+      ...extraFilterMealTime.where,
+      starttime: req.query.starttime
+    }
+  }
+
+  if(req.query.endtime){
+    extraFilterMealTime.where = {
+      ...extraFilterMealTime.where,
+      endtime: req.query.endtime
+    }
+  }
+
+  return { extraFilterMealPlan, extraFilterMealTime }
+}
 
 const getMealMasterOfBranch = async (req,res,next) => {
   try{
+    const { extraFilterMealPlan, extraFilterMealTime} = getExtraFilterForMasterBranch(req);
+    
     const branchId = req.params.branchId;
+    const branch = await Branch.findByPk(branchId);
     const mealmasters = await MealMaster.findAll({
       where: { branchId },
       include: {
         model: MealTime,
-        include: MealPlan
+        ...extraFilterMealTime,
+        include: {
+          model: MealPlan,
+          ...extraFilterMealPlan
+        }
       },
       order: [
         [MealTime, 'starttime', 'ASC']
       ],
     });
 
+    // console.log({ mealmasters });
+    const mealMastersArr = await Promise.all(mealmasters.map(async (m) => {
+      const obj = m.toJSON();
+      return {
+        ...obj,
+        startingPrice: await m.getStartingPrice(),
+      }
+    }))
+
     res.status(200).json({
       status: 200,
       message: 'Success',
       data: {
-        mealmasters: keyBy(mealmasters, 'day')
+        branch,
+        mealmasters: keyBy(mealMastersArr, 'day')
       }
     });
 

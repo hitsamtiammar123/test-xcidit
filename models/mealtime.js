@@ -1,31 +1,17 @@
 'use strict';
-const { Model, QueryTypes , ValidationError, ValidationErrorItem } = require('sequelize');
-const moment = require('moment');
-
-
+const { QueryTypes , ValidationError, ValidationErrorItem } = require('sequelize');
+const WithTimeModel = require('../commons/WithTimeModel');
 
 module.exports = (sequelize, DataTypes) => {
-  class MealTime extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-
-    checkBetweenDate(){
-      const mStart = moment(this.starttime, 'HH:ii');
-      const mEnd = moment(this.endtime, 'HH:ii');
-      if(mEnd.diff(mStart, 'minute') > 0){
-        return true;
+  class MealTime extends WithTimeModel {
+    async checkIntersectDate(time = null){
+      if(time === null){
+        return false;
       }
-      return false;
-    }
-
-    async checkIntersectDate(time){
       const mealMasterId = this.mealMasterId;
       const q = `SELECT "id", "price", "starttime", "endtime", "maxcapacity", "mealMasterId", "mealPlanId", "createdAt", "updatedAt" 
       FROM "MealTimes" AS "MealTime" 
-      WHERE "MealTime"."mealMasterId" = :mealMasterId AND :time > "MealTime"."starttime" and :time < "MealTime"."endtime"`;
+      WHERE "MealTime"."mealMasterId" = :mealMasterId AND :time >= "MealTime"."starttime" and :time <= "MealTime"."endtime"`;
 
       const check = await sequelize.query(q, { type: QueryTypes.SELECT, replacements: { time, mealMasterId } });
       if(check.length){

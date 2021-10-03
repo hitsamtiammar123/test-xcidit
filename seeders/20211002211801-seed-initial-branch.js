@@ -20,7 +20,22 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-
+      {
+        name: 'Branch B',
+        latitude: 2.001010,
+        longitude: 1.23431,
+        openinghours: '09:00',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Branch C',
+        latitude: 2.001010,
+        longitude: 1.23431,
+        openinghours: '09:00',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ])
   },
 
