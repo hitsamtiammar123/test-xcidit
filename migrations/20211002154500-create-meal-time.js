@@ -1,21 +1,15 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('MealMasterExtras', {
+    await queryInterface.createTable('MealTimes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      mealmasterid: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'MealMasters',
-          },
-          key: 'id'
-        }
+      price: {
+        type: Sequelize.DECIMAL
       },
       maxcapacity: {
         type: Sequelize.INTEGER
@@ -26,8 +20,23 @@ module.exports = {
       endtime: {
         type: Sequelize.TIME
       },
-      price: {
-        type: Sequelize.DECIMAL
+      mealMasterId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'MealMasters',
+          },
+          key: 'id'
+        }
+      },
+      mealPlanId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'MealPlans',
+          },
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -40,6 +49,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('MealMasterExtras');
+    await queryInterface.dropTable('MealTimes');
   }
 };

@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      MealMasterExtra.belongsTo(models.MealMaster, { foreignKey: 'mealmasterid' });
     }
   };
   MealMasterExtra.init({

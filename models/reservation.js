@@ -11,13 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Reservation.belongsTo
     }
   };
   Reservation.init({
     reservationtime: DataTypes.DATE,
     capacity: DataTypes.INTEGER,
     paidprice: DataTypes.NUMBER,
-    mealmasterid: DataTypes.INTEGER
+    mealmasterid: DataTypes.INTEGER,
+    userid: DataTypes.INTEGER,
+    isExtra: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Reservation',

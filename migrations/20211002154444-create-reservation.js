@@ -23,6 +23,9 @@ module.exports = {
       userid: {
         type: Sequelize.INTEGER
       },
+      isExtra: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -2,7 +2,7 @@
   "name": "test-xcidit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app",
     "dev": "nodemon app"
@@ -18,6 +18,8 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "pg": "^8.7.1",
     "sequelize": "^6.6.5"
   }

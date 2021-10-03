@@ -8,26 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      maxcapacity: {
-        type: Sequelize.INTEGER
-      },
-      price: {
-        type: Sequelize.DECIMAL
-      },
       day: {
         type: Sequelize.ENUM('monday','tuesday','wednesday','thursday','friday','saturday','sunday')
       },
-      starttime: {
-        type: Sequelize.TIME
-      },
-      endtime: {
-        type: Sequelize.TIME
-      },
       branchId: {
         type: Sequelize.INTEGER
-      },
-      mealMasterId: {
-        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

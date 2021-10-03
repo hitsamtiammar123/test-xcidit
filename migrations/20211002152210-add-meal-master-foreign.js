@@ -20,17 +20,6 @@ module.exports = {
           },
           onDelete: 'cascade',
           onUpdate: 'cascade'
-        }),
-        queryInterface.addConstraint('MealMasters',{
-          fields: ['mealMasterId'],
-          type: 'foreign key',
-          name: 'mealMasterId_foreign_key',
-          references: {
-            table: 'MealMasters',
-            field: 'id',
-          },
-          onDelete: 'cascade',
-          onUpdate: 'cascade'
         })
       ])
     })
@@ -47,7 +36,6 @@ module.exports = {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
         queryInterface.removeConstraint('MealMasters', 'branchId_foreign_key'),
-        queryInterface.removeConstraint('MealMasters', 'mealMasterId_foreign_key')
       ])
     })
   }
