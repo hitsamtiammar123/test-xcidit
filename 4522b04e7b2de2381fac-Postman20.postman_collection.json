@@ -1,0 +1,725 @@
+{
+  "info": {
+    "name": "test xcidit hosting",
+    "_postman_id": "cd515697-efa2-4f0a-8585-bf4e4aa22132",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Misc",
+      "description": "",
+      "item": [
+        {
+          "id": "d15f0281-4cef-423e-adcf-f8d7da59e582",
+          "name": "get all users",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "user"
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false
+            },
+            "description": "test description"
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "1c0bcb42-02fe-405f-b3dc-16bfdeb97d0b"
+            }
+          ]
+        },
+        {
+          "id": "31e550ed-bfa9-48fb-92ff-89fcc72661d4",
+          "name": "get all branches",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "branch"
+              ],
+              "query": [
+                {
+                  "key": "lon",
+                  "value": "1.2322432",
+                  "description": "",
+                  "disabled": false
+                },
+                {
+                  "key": "lat",
+                  "value": "2.1231234",
+                  "description": "",
+                  "disabled": false
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJuYW1lIjoiQWRtaW4gRmF0YmVsbGllcyIsInJvbGUiOiJhZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjEtMTAtMDNUMTM6NTU6MzEuOTE1WiIsInVwZGF0ZWRBdCI6IjIwMjEtMTAtMDNUMTM6NTU6MzEuOTE1WiIsImlhdCI6MTYzMzI3MjQ1MX0.wTUmmty1q-XWB3tgipIWASp1zKYCQ6FEJAqT4aSbuvw",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "8fda63e1-e6df-4cf9-a9c7-687115c0d11d"
+            }
+          ]
+        },
+        {
+          "id": "e01e8362-13f2-4be5-b698-3c24d32492c0",
+          "name": "create branch",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "branch"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Branch B\",\r\n  \"latitude\": 2.1000022,\r\n  \"longitude\": 1.2343434,\r\n  \"openinghours\": \"10:00\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "45e6d93c-f09d-474e-b9b0-c3ca5f3dd349"
+            }
+          ]
+        },
+        {
+          "id": "1b720c44-a553-4c98-81f4-ee9386d66d49",
+          "name": "update branch",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "branch/6"
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Branch C\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "88d25bc7-1a09-4cf9-a022-bbd19f5becac"
+            }
+          ]
+        },
+        {
+          "id": "385f55e5-7c46-485b-9969-4d6bc1d18f22",
+          "name": "delete branch",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "branch/5"
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Branch B\",\r\n  \"latitude\": 1.1000022,\r\n  \"longitude\": 2.2443434,\r\n  \"openinghours\": \"11:30\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "4c1a3ae7-411d-4c0f-bb12-c2febc8f38b3"
+            }
+          ]
+        },
+        {
+          "id": "69f5663a-5e8a-4f73-b4d4-b70337b849e2",
+          "name": "get all mealplans",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealplan"
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "8a91d22f-eee4-4289-b2be-b10e3ea9cceb"
+            }
+          ]
+        },
+        {
+          "id": "479687ee-7c5e-4f8b-bfeb-19ba5566a324",
+          "name": "create meal plan",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealplan"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"day\": \"thursday\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "fe7e35a7-1120-47a8-9130-68e92efadb17"
+            }
+          ]
+        },
+        {
+          "id": "44a5b320-b1fe-4752-8f93-c553a1d7706b",
+          "name": "update meal plan",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealplan/7"
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Buffet E\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "d492558c-8e9f-4e38-b108-eb8337a1986e"
+            }
+          ]
+        },
+        {
+          "id": "5382602c-74a4-454c-a2c6-365355aafd7c",
+          "name": "delete meal plan",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealplan/5"
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Buffet E\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "350049e3-f768-41fb-a03a-bb9d9b542691"
+            }
+          ]
+        },
+        {
+          "id": "6f267553-ab5e-493b-ad1b-d0260e6e0935",
+          "name": "create meal master",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealmaster/create-by-branch/1"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"day\": \"sunday\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "4154a64f-f466-439b-bd3a-714f5b79154b"
+            }
+          ]
+        },
+        {
+          "id": "d111902b-6cc4-4c9a-8a1b-0e9021246b7f",
+          "name": "get meal master by id",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealmaster/get-by-branch/7"
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "eb0fca38-1c04-4891-babb-592918026270"
+            }
+          ]
+        },
+        {
+          "id": "2d97ac69-3785-46ab-92ac-20d49829e75e",
+          "name": "create meal time",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealmaster/create-mealtime/16"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"price\": 12,\r\n  \"starttime\": \"16:00\",\r\n  \"endtime\": \"20:00\",\r\n  \"maxcapacity\": 20,\r\n  \"mealPlanId\": 6\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "45946aea-5bc6-4b5c-b34e-8597a3495e10"
+            }
+          ]
+        },
+        {
+          "id": "c5904af8-7251-4858-b43b-ba3861246005",
+          "name": "update meal time",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealtime/7"
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"price\": 12,\r\n  \"maxcapacity\": 20\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "5a532edc-8fb3-487f-8b2e-f8701ea61c7b"
+            }
+          ]
+        },
+        {
+          "id": "78448a93-c0e6-48fa-a10c-4070344af9e5",
+          "name": "make reservation",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "reservation/10"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reservationtime\": \"2021-10-04 16:30:00\",\r\n  \"capacity\": 12\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "ae625d1f-eb5c-48c0-979c-96f32b6dc48a"
+            }
+          ]
+        },
+        {
+          "id": "a98877ee-a59f-42be-8fa9-5b9ec4dccb9c",
+          "name": "make meal extra",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealextra/"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"maxcapacity\": 20,\r\n  \"starttime\": \"07:00\",\r\n  \"endtime\": \"10:00\",\r\n  \"price\": 24,\r\n  \"mealmasterid\": 10\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "42003d8d-af1e-44cb-b804-f43b9c40a00a"
+            }
+          ]
+        },
+        {
+          "id": "eb0037d8-a9a7-4234-b0af-c59d0c6a085b",
+          "name": "update meal extra",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "mealextra/2"
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"maxcapacity\": 25\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "name": "Response_200",
+              "id": "ba998c82-2b31-4b7d-b260-5cbb4901ffa9"
+            }
+          ]
+        },
+        {
+          "id": "3d8d812c-358a-4e1a-a44c-80eb8e4d8e2b",
+          "name": "login",
+          "request": {
+            "url": {
+              "protocol": "https",
+              "host": "stark-dusk-76333.herokuapp.com",
+              "path": [
+                "login"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"admin@admin.com\",\r\n  \"password\": \"password123\"\r\n}",
+              "disabled": false
+            }
+          },
+          "response": [
+            {
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express",
+                  "disabled": false
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*",
+                  "disabled": false
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "485",
+                  "disabled": false
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1e5-WRJ0e8++MMd0lFJe4V0n2dvXViw\"",
+                  "disabled": false
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 03 Oct 2021 14:30:28 GMT",
+                  "disabled": false
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "disabled": false
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5",
+                  "disabled": false
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "disabled": false
+                }
+              ],
+              "body": "{\r\n  \"status\": 200,\r\n  \"message\": \"Login success\",\r\n  \"data\": {\r\n    \"id\": 5,\r\n    \"email\": \"admin@admin.com\",\r\n    \"name\": \"Admin Fatbellies\",\r\n    \"createdAt\": \"2021-10-03T13:55:31.915Z\",\r\n    \"updatedAt\": \"2021-10-03T13:55:31.915Z\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJuYW1lIjoiQWRtaW4gRmF0YmVsbGllcyIsImNyZWF0ZWRBdCI6IjIwMjEtMTAtMDNUMTM6NTU6MzEuOTE1WiIsInVwZGF0ZWRBdCI6IjIwMjEtMTAtMDNUMTM6NTU6MzEuOTE1WiIsImlhdCI6MTYzMzI3MTQyOH0.EqUMnjdA87GeSzb2fWYLz2b3vyhR9GGJbPO9VdB2pT8\"\r\n  }\r\n}",
+              "status": "OK",
+              "code": 200,
+              "name": "Response_200",
+              "id": "5ccde8bf-6f52-4ca4-b4a4-f48c48327b48"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": []
+}

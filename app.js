@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { errorHandler } = require('./middleware');
 const {
   branch,
@@ -14,7 +15,8 @@ const {
 } = require('./routes');
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
+app.use(express.static(path.join(__dirname,'public')));
 app.use(cors());
 
 app.get('/', (req,res) => {
